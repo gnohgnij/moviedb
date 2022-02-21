@@ -1,5 +1,5 @@
 # Movie Database
 
-This project was created with ReactJS, Material UI and Google Firebase
+Built with ReactJS, Material UI and Google Firebase
 
 Recommend me movies!
