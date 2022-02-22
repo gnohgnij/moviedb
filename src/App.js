@@ -32,15 +32,7 @@ const App = () => {
     return (
       <div key={year.id}>
         <h1>{year.year}</h1>
-        <Grid
-          container={true}
-          spacing={3}
-          xl={"auto"}
-          lg={"auto"}
-          md={"auto"}
-          sm={"auto"}
-          xs={"auto"}
-        >
+        <Grid container={true} spacing={3}>
           {movies
             .filter((movie) => movie.year === year.year)
             .map((movie) => {
@@ -57,7 +49,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <DrawerMenu />
+      <DrawerMenu years={years} />
       <div className="app--movies">{movieList}</div>
     </div>
   );

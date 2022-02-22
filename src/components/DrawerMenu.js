@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Drawer, Typography, Box, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DrawerText from "./DrawerTexts";
+import DrawerFilter from "./DrawerFilter";
 import "./DrawerMenu.css";
 
 const drawerWidth = 240;
 
-const DrawerMenu = () => {
+const DrawerMenu = (props) => {
   const [toggle, setToggle] = useState(false);
 
   const toggleDrawer = () => {
@@ -35,9 +36,12 @@ const DrawerMenu = () => {
               padding: "1rem",
             }}
             role="presentation"
-            onClick={toggleDrawer}
           >
-            <DrawerText />
+            <DrawerFilter years={props.years} />
+            <br />
+            <div className="drawer--text">
+              <DrawerText />
+            </div>
           </Box>
         </Drawer>
       </React.Fragment>

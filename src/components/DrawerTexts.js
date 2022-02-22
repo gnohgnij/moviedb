@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Link } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "./DrawerText.css";
 
 const DrawerText = () => {
