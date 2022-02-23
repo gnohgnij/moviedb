@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 
 const DrawerFilter = (props) => {
+  console.log("props.years", props.years);
+
   const [year, setYear] = useState("");
 
   const handleSelect = (event) => {
@@ -18,9 +20,8 @@ const DrawerFilter = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (year) {
-      console.log(year);
+      props.setFilteredYear(year);
     }
   };
 
@@ -52,10 +53,10 @@ const DrawerFilter = (props) => {
             <InputLabel
               id="select-year-label"
               color="primary"
-              variant="outline"
+              variant="standard"
               sx={{ fontSize: "1.2rem" }}
             >
-              Year
+              Filter By Year
             </InputLabel>
             <Select
               labelId="select-year-label"
@@ -65,6 +66,7 @@ const DrawerFilter = (props) => {
               onChange={handleSelect}
               sx={{ color: "white" }}
             >
+              <MenuItem value="all">All</MenuItem>
               {yearList}
             </Select>
 
