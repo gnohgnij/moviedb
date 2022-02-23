@@ -35,8 +35,6 @@ const App = () => {
     return year.year === filteredYear;
   }
 
-  console.log("years", years);
-
   let movieList = "";
   if (filteredYear === "all") {
     movieList = years.map((year) => {

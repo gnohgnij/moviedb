@@ -20,7 +20,17 @@ const DrawerMenu = (props) => {
         <Button
           onClick={toggleDrawer}
           startIcon={<MenuIcon />}
-          sx={{ color: "#e0e1dd" }}
+          sx={[
+            {
+              color: "#051923",
+              bgcolor: "#e0e1dd",
+            },
+            {
+              "&:hover": {
+                backgroundColor: "#006494",
+              },
+            },
+          ]}
         >
           Menu
         </Button>

@@ -10,8 +10,6 @@ import {
 } from "@mui/material";
 
 const DrawerFilter = (props) => {
-  console.log("props.years", props.years);
-
   const [year, setYear] = useState("");
 
   const handleSelect = (event) => {
