@@ -17,3 +17,8 @@
 .app--movies h1{
   color: #e0e1dd;
 } 
+
+.app--count{
+  float: right;
+  color: #e0e1dd;
+}

@@ -5,6 +5,7 @@ import { db } from "./firebase-config";
 import Card from "./components/Card";
 import DrawerMenu from "./components/DrawerMenu";
 import { Grid } from "@mui/material";
+import BackToTopButton from "./components/BackToTopButton";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -38,6 +39,7 @@ const App = () => {
   let movieList = "";
   if (filteredYear === "all") {
     movieList = years.map((year) => {
+      let count = 0;
       return (
         <div key={year.id}>
           <h1>{year.year}</h1>
@@ -45,6 +47,7 @@ const App = () => {
             {movies
               .filter((movie) => movie.year === year.year)
               .map((movie) => {
+                count += 1;
                 return (
                   <Grid item key={movie.id}>
                     <Card image={movie.image} title={movie.title} />
@@ -52,11 +55,13 @@ const App = () => {
                 );
               })}
           </Grid>
+          <div className="app--count">Count: {count}</div>
         </div>
       );
     });
   } else {
     movieList = years.filter(checkYear).map((year) => {
+      let count = 0;
       return (
         <div key={year.id}>
           <h1>{year.year}</h1>
@@ -64,6 +69,7 @@ const App = () => {
             {movies
               .filter((movie) => movie.year === year.year)
               .map((movie) => {
+                count += 1;
                 return (
                   <Grid item key={movie.id}>
                     <Card image={movie.image} title={movie.title} />
@@ -71,6 +77,7 @@ const App = () => {
                 );
               })}
           </Grid>
+          <div className="app--count">Count: {count}</div>
         </div>
       );
     });
@@ -78,6 +85,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <BackToTopButton />
       <DrawerMenu years={years} setFilteredYear={setFilteredYear} />
       <div className="app--movies">{movieList}</div>
     </div>
