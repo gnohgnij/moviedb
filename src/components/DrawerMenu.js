@@ -49,6 +49,7 @@ const DrawerMenu = (props) => {
           <DrawerFilter
             years={props.years}
             setFilteredYear={props.setFilteredYear}
+            toggleDrawer={toggleDrawer}
           />
           <br />
           <div className="drawer--text">

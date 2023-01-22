@@ -20,6 +20,7 @@ const DrawerFilter = (props) => {
     event.preventDefault();
     if (year) {
       props.setFilteredYear(year);
+      props.toggleDrawer(false);
     }
   };
 
@@ -64,7 +65,6 @@ const DrawerFilter = (props) => {
               onChange={handleSelect}
               sx={{ color: "white" }}
             >
-              <MenuItem value="all">All</MenuItem>
               {yearList}
             </Select>
 

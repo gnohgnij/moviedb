@@ -10,15 +10,28 @@
   margin-bottom: 5rem;
 }
 
-.app--movies{
+.app--movies {
   width: 100%;
 }
 
-.app--movies h1{
+.app--movies h1 {
   color: #e0e1dd;
-} 
+}
 
-.app--count{
-  float: right;
+.app--count {
+  text-align: center;
   color: #e0e1dd;
+  font-family: "Libre Baskerville", serif;
+}
+
+.title {
+  text-align: center;
+  font-family: "Libre Baskerville", serif;
+  color: #e0e1dd;
+}
+
+.handwriting {
+  font-family: "Nanum Pen Script", cursive;
+  color: red;
+  font-size: 2.5rem;
 }

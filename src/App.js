@@ -10,7 +10,7 @@ import BackToTopButton from "./components/BackToTopButton";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [years, setYears] = useState([]);
-  const [filteredYear, setFilteredYear] = useState("all");
+  const [filteredYear, setFilteredYear] = useState(2023);
 
   const movieCollectionRef = collection(db, "movies");
   const yearCollectionRef = collection(db, "years");
@@ -37,56 +37,36 @@ const App = () => {
   }
 
   let movieList = "";
-  if (filteredYear === "all") {
-    movieList = years.map((year) => {
-      let count = 0;
-      return (
-        <div key={year.id}>
-          <h1>{year.year}</h1>
-          <Grid container={true} spacing={3}>
-            {movies
-              .filter((movie) => movie.year === year.year)
-              .map((movie) => {
-                count += 1;
-                return (
-                  <Grid item key={movie.id}>
-                    <Card image={movie.image} title={movie.title} />
-                  </Grid>
-                );
-              })}
-          </Grid>
-          <div className="app--count">Count: {count}</div>
+  movieList = years.filter(checkYear).map((year) => {
+    let count = 0;
+    return (
+      <div key={year.id}>
+        <Grid container={true} spacing={3}>
+          {movies
+            .filter((movie) => movie.year === year.year)
+            .map((movie) => {
+              count += 1;
+              return (
+                <Grid item key={movie.id}>
+                  <Card image={movie.image} title={movie.title} />
+                </Grid>
+              );
+            })}
+        </Grid>
+        <div className="app--count">
+          I watched <span className="handwriting">{count}</span> movies
         </div>
-      );
-    });
-  } else {
-    movieList = years.filter(checkYear).map((year) => {
-      let count = 0;
-      return (
-        <div key={year.id}>
-          <h1>{year.year}</h1>
-          <Grid container={true} spacing={3}>
-            {movies
-              .filter((movie) => movie.year === year.year)
-              .map((movie) => {
-                count += 1;
-                return (
-                  <Grid item key={movie.id}>
-                    <Card image={movie.image} title={movie.title} />
-                  </Grid>
-                );
-              })}
-          </Grid>
-          <div className="app--count">Count: {count}</div>
-        </div>
-      );
-    });
-  }
+      </div>
+    );
+  });
 
   return (
     <div className="app">
-      <BackToTopButton />
       <DrawerMenu years={years} setFilteredYear={setFilteredYear} />
+      <h1 className="title">
+        Movies I watched in <span className="handwriting">{filteredYear}</span>
+      </h1>
+      <BackToTopButton />
       <div className="app--movies">{movieList}</div>
     </div>
   );
